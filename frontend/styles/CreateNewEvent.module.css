@@ -1,0 +1,253 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background: #0b0b15;
+    box-shadow: 0 0 10px #00ff9d20;
+    z-index: 1000;
+  }
+  
+  .navLogo {
+    font-family: 'Orbitron-Bold', sans-serif;
+    font-size: 1.5rem;
+    color: #00ff9d;
+    text-decoration: none;
+  }
+  
+  .navLinks {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .navLink {
+    font-family: 'Rajdhani-Medium', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+  }
+  .navLink:hover {
+    color: #00ff9d;
+  }
+  
+  .navActions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .iconButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .iconButton img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 2rem 2rem; 
+    background: linear-gradient(
+      180deg,
+      #0b0b1a 0%,
+      #1a1a3a 100%
+    );
+    min-height: 100vh;
+  }
+  
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+  }
+  
+  .headerTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .title {
+    font-family: 'Orbitron-Bold', sans-serif;
+    font-size: 1.75rem;
+    color: #00ff9d;
+  }
+  
+  .breadcrumb {
+    font-family: 'Rajdhani-Medium', sans-serif;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+  
+  .cancel {
+    border: 1px solid #00ff9d;
+    background: transparent;
+    color: #00ff9d;
+    padding: 0.5rem 1rem;
+    font-family: 'Rajdhani-Bold', sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  
+  .formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    row-gap: 1.5rem;
+    column-gap: 3rem;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  
+  .formGrid label {
+    display: block;
+    font-family: 'Rajdhani-Medium', sans-serif;
+    font-size: 0.875rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+  }
+  
+  .formGrid input,
+  .formGrid select,
+  .formGrid textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-family: 'Rajdhani-Medium', sans-serif;
+    font-size: 0.875rem;
+    color: #eee;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
+  .formGrid textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .fullWidth {
+    grid-column: 1 / -1;
+  }
+  
+  .dropzone {
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .dropzoneContent span {
+    display: block;
+    color: #888;
+    font-family: 'Rajdhani-Medium', sans-serif;
+    margin-bottom: 0.5rem;
+  }
+  
+  .dropzoneContent small {
+    color: #666;
+    font-size: 0.75rem;
+  }
+  
+  .teams {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .tag {
+    background: rgba(0, 255, 157, 0.1);
+    color: #00ff9d;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Rajdhani-Medium', sans-serif;
+  }
+  
+  .tag button {
+    background: none;
+    border: none;
+    color: #00ff9d;
+    margin-left: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .scheduleList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .scheduleItem {
+    display: grid;
+    grid-template-columns: 100px minmax(200px, 1fr);
+    column-gap: 2rem;  
+    row-gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  
+  
+  .addSchedule {
+    background: none;
+    border: none;
+    color: #00ff9d;
+    font-family: 'Rajdhani-Medium', sans-serif;
+    margin-top: 1rem;
+    cursor: pointer;
+    justify-self: start;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  
+  .draft {
+    background: none;
+    border: 1px solid #00ff9d;
+    color: #00ff9d;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Rajdhani-Bold', sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .upload {
+    background: linear-gradient(
+      11deg,
+      rgba(0, 255, 157, 1) 0%,
+      rgba(0, 184, 255, 1) 100%
+    );
+    border: none;
+    color: #05050a;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Rajdhani-Bold', sans-serif;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
