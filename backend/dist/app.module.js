@@ -13,6 +13,10 @@ const app_service_1 = require("./app.service");
 const db_module_1 = require("./db/db.module");
 const events_module_1 = require("./events/events.module");
 const notifications_module_1 = require("./notifications/notifications.module");
+const subscribers_module_1 = require("./subscriber/subscribers.module");
+const contentCreators_module_1 = require("./contentCreator/contentCreators.module");
+const users_module_1 = require("./user/users.module");
+const favorites_module_1 = require("./favorites/favorites.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -21,7 +25,11 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             db_module_1.DatabaseModule,
             events_module_1.EventsModule,
-            notifications_module_1.NotificationsModule
+            notifications_module_1.NotificationsModule,
+            subscribers_module_1.SubscribersModule,
+            contentCreators_module_1.ContentCreatorsModule,
+            users_module_1.UsersModule,
+            favorites_module_1.FavoritesModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

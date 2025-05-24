@@ -1,12 +1,13 @@
 import { NotificationsService } from './notifications.service';
-import { CreateNotificationDto } from './dto/create-notification.dto';
-import { UpdateNotificationDto } from './dto/update-notification.dto';
+import { Notification } from './notification.model';
 export declare class NotificationsController {
     private readonly notificationsService;
     constructor(notificationsService: NotificationsService);
-    create(createNotificationDto: CreateNotificationDto): string;
-    findAll(): string;
-    findOne(id: string): string;
-    update(id: string, updateNotificationDto: UpdateNotificationDto): string;
-    remove(id: string): string;
+    findAllByUser(userId: string): Promise<Notification[]>;
+    create(body: {
+        userId: number;
+        message: string;
+    }): Promise<any>;
+    markAsRead(id: string): Promise<any>;
+    delete(id: string): Promise<any>;
 }

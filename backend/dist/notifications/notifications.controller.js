@@ -15,64 +15,52 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.NotificationsController = void 0;
 const common_1 = require("@nestjs/common");
 const notifications_service_1 = require("./notifications.service");
-const create_notification_dto_1 = require("./dto/create-notification.dto");
-const update_notification_dto_1 = require("./dto/update-notification.dto");
 let NotificationsController = class NotificationsController {
     constructor(notificationsService) {
         this.notificationsService = notificationsService;
     }
-    create(createNotificationDto) {
-        return this.notificationsService.create(createNotificationDto);
+    findAllByUser(userId) {
+        return this.notificationsService.findAllByUser(parseInt(userId, 10));
     }
-    findAll() {
-        return this.notificationsService.findAll();
+    create(body) {
+        return this.notificationsService.create(body.userId, body.message);
     }
-    findOne(id) {
-        return this.notificationsService.findOne(+id);
+    markAsRead(id) {
+        return this.notificationsService.markAsRead(parseInt(id, 10));
     }
-    update(id, updateNotificationDto) {
-        return this.notificationsService.update(+id, updateNotificationDto);
-    }
-    remove(id) {
-        return this.notificationsService.remove(+id);
+    delete(id) {
+        return this.notificationsService.delete(parseInt(id, 10));
     }
 };
 exports.NotificationsController = NotificationsController;
 __decorate([
+    (0, common_1.Get)('user/:userId'),
+    __param(0, (0, common_1.Param)('userId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], NotificationsController.prototype, "findAllByUser", null);
+__decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_notification_dto_1.CreateNotificationDto]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], NotificationsController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], NotificationsController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Get)(':id'),
+    (0, common_1.Patch)(':id/read'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], NotificationsController.prototype, "findOne", null);
-__decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_notification_dto_1.UpdateNotificationDto]),
-    __metadata("design:returntype", void 0)
-], NotificationsController.prototype, "update", null);
+], NotificationsController.prototype, "markAsRead", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], NotificationsController.prototype, "remove", null);
+], NotificationsController.prototype, "delete", null);
 exports.NotificationsController = NotificationsController = __decorate([
     (0, common_1.Controller)('notifications'),
     __metadata("design:paramtypes", [notifications_service_1.NotificationsService])
