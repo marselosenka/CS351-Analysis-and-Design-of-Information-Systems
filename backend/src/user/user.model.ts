@@ -5,5 +5,5 @@ export interface User {
     username: string;
     email: string;
     password: string;  
-    role: 'subscriber' | 'content_creator';
+    role: 'subscriber' | 'creator';
 }

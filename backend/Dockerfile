@@ -10,6 +10,6 @@ COPY . .
  
 EXPOSE 5000
  
-ENV NODE_ENV=development
- 
-CMD ["npm", "run", "start:dev"]
+ENV NODE_ENV=production
+
+CMD ["sh", "-c", "npm run build && npm run start:prod"]

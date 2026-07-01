@@ -17,14 +17,41 @@ let EventsService = class EventsService {
         this.db = db;
     }
     async findAll() {
-        return await this.db.query('SELECT * FROM events');
+        return this.db.query('SELECT * FROM events');
     }
     async getById(id) {
-        return await this.db.query('SELECT * FROM events WHERE id = ?', [id]);
+        const results = await this.db.query('SELECT * FROM events WHERE id = ?', [id]);
+        return results[0];
     }
-    async create(name, date) {
-        const dateOnly = new Date(date).toISOString().split('T')[0];
-        return await this.db.query('INSERT INTO events (name, date) VALUES (?, ?)', [name, dateOnly]);
+    async create(event) {
+        const dateObj = new Date(event.date);
+        if (isNaN(dateObj.getTime())) {
+            throw new Error(`Invalid date provided: ${event.date}`);
+        }
+        const dateOnly = dateObj.toISOString().split('T')[0];
+        const teamsJson = JSON.stringify(event.teams);
+        const scheduleJson = JSON.stringify(event.schedule);
+        const wallpaper = typeof event.wallpaper === 'string' ? event.wallpaper : null;
+        const sql = `
+            INSERT INTO events
+            (title, game, eventType, date, startTime, timezone, price, status, wallpaper, description, teams, schedule)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `;
+        const params = [
+            event.title,
+            event.game,
+            event.eventType,
+            dateOnly,
+            event.startTime,
+            event.timezone,
+            event.price,
+            event.status,
+            wallpaper,
+            event.description,
+            teamsJson,
+            scheduleJson,
+        ];
+        return this.db.query(sql, params);
     }
 };
 exports.EventsService = EventsService;

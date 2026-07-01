@@ -22,11 +22,19 @@ let EventsController = class EventsController {
     findAll() {
         return this.eventsService.findAll();
     }
-    async findOne(id) {
+    findOne(id) {
         return this.eventsService.getById(parseInt(id, 10));
     }
-    create(body) {
-        return this.eventsService.create(body.name, body.date);
+    async create(body) {
+        const teams = typeof body.teams === 'string' ? JSON.parse(body.teams) : body.teams || [];
+        const schedule = typeof body.schedule === 'string' ? JSON.parse(body.schedule) : body.schedule || [];
+        const event = {
+            ...body,
+            teams,
+            schedule,
+            wallpaper: body.wallpaper,
+        };
+        return this.eventsService.create(event);
     }
 };
 exports.EventsController = EventsController;
@@ -48,7 +56,7 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], EventsController.prototype, "create", null);
 exports.EventsController = EventsController = __decorate([
     (0, common_1.Controller)('events'),

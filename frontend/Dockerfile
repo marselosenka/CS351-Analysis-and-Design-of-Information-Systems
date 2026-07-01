@@ -10,7 +10,6 @@ COPY . .
  
 EXPOSE 3000
  
-ENV NODE_ENV=development
-ENV CHOKIDAR_USE_POLLING=true
- 
-CMD ["npm", "run", "dev"]
+ENV NODE_ENV=production
+
+CMD ["sh", "-c", "npm run build && npm run start"]

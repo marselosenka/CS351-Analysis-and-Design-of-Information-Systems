@@ -20,10 +20,10 @@ let NotificationsService = class NotificationsService {
         return await this.db.query('SELECT * FROM notifications WHERE userId = ? ORDER BY createdAt DESC', [userId]);
     }
     async create(userId, message) {
-        return await this.db.query('INSERT INTO notifications (userId, message, read, createdAt) VALUES (?, ?, ?, NOW())', [userId, message, false]);
+        return await this.db.query('INSERT INTO notifications (userId, message, isRead, createdAt) VALUES (?, ?, ?, NOW())', [userId, message, false]);
     }
     async markAsRead(id) {
-        return await this.db.query('UPDATE notifications SET read = ? WHERE id = ?', [true, id]);
+        return await this.db.query('UPDATE notifications SET isRead = ? WHERE id = ?', [true, id]);
     }
     async delete(id) {
         return await this.db.query('DELETE FROM notifications WHERE id = ?', [id]);

@@ -8,15 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
 const db_module_1 = require("./db/db.module");
 const events_module_1 = require("./events/events.module");
 const notifications_module_1 = require("./notifications/notifications.module");
-const subscribers_module_1 = require("./subscriber/subscribers.module");
-const contentCreators_module_1 = require("./contentCreator/contentCreators.module");
+const subscribers_module_1 = require("./subscribers/subscribers.module");
+const content_creators_module_1 = require("./content-creators/content-creators.module");
 const users_module_1 = require("./user/users.module");
 const favorites_module_1 = require("./favorites/favorites.module");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -27,12 +26,11 @@ exports.AppModule = AppModule = __decorate([
             events_module_1.EventsModule,
             notifications_module_1.NotificationsModule,
             subscribers_module_1.SubscribersModule,
-            contentCreators_module_1.ContentCreatorsModule,
+            content_creators_module_1.ContentCreatorsModule,
             users_module_1.UsersModule,
-            favorites_module_1.FavoritesModule
+            favorites_module_1.FavoritesModule,
+            auth_module_1.AuthModule,
         ],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

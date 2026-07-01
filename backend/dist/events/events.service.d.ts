@@ -1,8 +1,9 @@
 import { DatabaseService } from '../db/db.service';
+import { Event } from './event.model';
 export declare class EventsService {
     private readonly db;
     constructor(db: DatabaseService);
-    findAll(): Promise<any>;
-    getById(id: number): Promise<any>;
-    create(name: string, date: string): Promise<any>;
+    findAll(): Promise<Event[]>;
+    getById(id: number): Promise<Event>;
+    create(event: Event): Promise<any>;
 }

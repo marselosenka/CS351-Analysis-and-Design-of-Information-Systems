@@ -15,14 +15,14 @@ export class NotificationsService {
 
   async create(userId: number, message: string): Promise<any> {
     return await this.db.query(
-      'INSERT INTO notifications (userId, message, read, createdAt) VALUES (?, ?, ?, NOW())',
+      'INSERT INTO notifications (userId, message, isRead, createdAt) VALUES (?, ?, ?, NOW())',
       [userId, message, false]
     );
   }
 
   async markAsRead(id: number): Promise<any> {
     return await this.db.query(
-      'UPDATE notifications SET read = ? WHERE id = ?',
+      'UPDATE notifications SET isRead = ? WHERE id = ?',
       [true, id]
     );
   }

@@ -4,9 +4,19 @@ export declare class EventsController {
     private readonly eventsService;
     constructor(eventsService: EventsService);
     findAll(): Promise<Event[]>;
-    findOne(id: string): Promise<any>;
+    findOne(id: string): Promise<Event>;
     create(body: {
-        name: string;
+        title: string;
+        game: string;
+        eventType: string;
         date: string;
+        startTime: string;
+        timezone: string;
+        price: number;
+        status: 'Upcoming' | 'Live';
+        description: string;
+        teams: string | any[];
+        schedule: string | any[];
+        wallpaper: string | null;
     }): Promise<any>;
 }

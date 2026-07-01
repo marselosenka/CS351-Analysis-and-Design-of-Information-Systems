@@ -26,7 +26,7 @@ let UsersController = class UsersController {
         return this.usersService.findById(parseInt(id, 10));
     }
     create(body) {
-        return this.usersService.create(body.name, body.email, body.role);
+        return this.usersService.create(body.name, body.lastName, body.username, body.email, body.password, body.role);
     }
 };
 exports.UsersController = UsersController;
@@ -48,7 +48,7 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "create", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),

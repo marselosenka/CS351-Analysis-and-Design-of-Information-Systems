@@ -7,7 +7,10 @@ export declare class UsersController {
     findOne(id: string): Promise<User>;
     create(body: {
         name: string;
+        lastName: string;
+        username: string;
         email: string;
-        role: string;
+        password: string;
+        role: 'subscriber' | 'creator';
     }): Promise<any>;
 }
